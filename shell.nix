@@ -9,6 +9,7 @@ pkgs.mkShell {
         pytz
         weasyprint
         distutils
+        pandas
       ]
     ))
     pkgs.texliveFull
