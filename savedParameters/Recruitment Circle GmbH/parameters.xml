@@ -1,0 +1,49 @@
+<xml>
+    <command name="adaptGender">
+        <parameter></parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\prenameReceiver</parameter>
+        <parameter></parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\surnameReceiver</parameter>
+        <parameter></parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\companyReceiver</parameter>
+        <parameter>Recruitment Circle GmbH</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressStreetReceiver</parameter>
+        <parameter>Friedrichstraße 76</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPLZReceiver</parameter>
+        <parameter>10117</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPlaceReceiver</parameter>
+        <parameter>Berlin</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\emailReceiver</parameter>
+        <parameter>info@recruitmentcircle.de</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationPosition</parameter>
+        <parameter>Java Developer (m/w/d) - 100% remote</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationHref</parameter>
+        <parameter>https://www.xing.com/jobs/remote-java-developer-100-remote-100095058</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationLanguage</parameter>
+        <parameter>German</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\jobAgent</parameter>
+        <parameter></parameter>
+    </command>
+</xml>

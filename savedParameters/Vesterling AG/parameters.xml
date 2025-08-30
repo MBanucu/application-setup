@@ -1,0 +1,49 @@
+<xml>
+    <command name="adaptGender">
+        <parameter>Mrs</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\prenameReceiver</parameter>
+        <parameter>Anna</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\surnameReceiver</parameter>
+        <parameter>Shevchenko</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\companyReceiver</parameter>
+        <parameter>Vesterling AG</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressStreetReceiver</parameter>
+        <parameter>Elsenheimerstraße 49</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPLZReceiver</parameter>
+        <parameter>80687</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPlaceReceiver</parameter>
+        <parameter>München</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\emailReceiver</parameter>
+        <parameter>Welcome@Vesterling.com</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationPosition</parameter>
+        <parameter>Java Softwareentwickler (mwd)</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationHref</parameter>
+        <parameter>https://www.xing.com/jobs/hamburg-java-softwareentwickler-mwd-100008900</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationLanguage</parameter>
+        <parameter>German</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\jobAgent</parameter>
+        <parameter></parameter>
+    </command>
+</xml>

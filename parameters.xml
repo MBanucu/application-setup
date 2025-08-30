@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DOCUMENT filename="parameters.xml">
+    <!-- "Mr" for male, "Mrs" for female, empty if unknown -->
+    <command name="adaptGender">
+        <parameter>Mr</parameter>
+    </command>
+    <!-- Defining the receiver's first name -->
+    <command name="newcommand">
+        <parameter>\prenameReceiver</parameter>
+        <parameter></parameter>
+    </command>
+    <!-- Defining the receiver's surname -->
+    <command name="newcommand">
+        <parameter>\surnameReceiver</parameter>
+        <parameter>Klein</parameter>
+    </command>
+    <!-- Defining the receiver's company -->
+    <command name="newcommand">
+        <parameter>\companyReceiver</parameter>
+        <parameter>Sylke Müller Transport &amp; Logis Müller Sylke</parameter>
+    </command>
+    <!-- Defining the receiver's street address -->
+    <command name="newcommand">
+        <parameter>\addressStreetReceiver</parameter>
+        <parameter>Johannisstr. 24</parameter>
+    </command>
+    <!-- Defining the receiver's postal code -->
+    <command name="newcommand">
+        <parameter>\addressPLZReceiver</parameter>
+        <parameter>04600</parameter>
+    </command>
+    <!-- Defining the receiver's city -->
+    <command name="newcommand">
+        <parameter>\addressPlaceReceiver</parameter>
+        <parameter>Altenburg</parameter>
+    </command>
+    <!-- Defining the receiver's email address -->
+    <command name="newcommand">
+        <parameter>\emailReceiver</parameter>
+        <parameter>klein.altenburg@gt-online.de</parameter>
+    </command>
+    <!-- Defining the application position -->
+    <command name="newcommand">
+        <parameter>\applicationPosition</parameter>
+        <parameter>Auslieferungsfahrer/in (nicht Verkaufsfahrer/in)</parameter>
+    </command>
+    <!-- Defining the application hyperlink -->
+    <command name="newcommand">
+        <parameter>\applicationHref</parameter>
+        <parameter>https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1203430195-S</parameter>
+    </command>
+    <!-- Defining the application language -->
+    <command name="newcommand">
+        <parameter>\applicationLanguage</parameter>
+        <parameter>German</parameter>
+    </command>
+    <!-- Defining the job agent (if any) -->
+    <command name="newcommand">
+        <parameter>\jobAgent</parameter>
+        <parameter></parameter>
+    </command>
+</DOCUMENT>

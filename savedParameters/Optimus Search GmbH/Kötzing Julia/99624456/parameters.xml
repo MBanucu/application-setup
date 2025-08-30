@@ -1,0 +1,49 @@
+<xml>
+    <command name="adaptGender">
+        <parameter>Mrs</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\prenameReceiver</parameter>
+        <parameter>Julia</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\surnameReceiver</parameter>
+        <parameter>Kötzing</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\companyReceiver</parameter>
+        <parameter>Optimus Search GmbH</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressStreetReceiver</parameter>
+        <parameter>Potsdam Platz, Sony Center</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPLZReceiver</parameter>
+        <parameter>10785</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPlaceReceiver</parameter>
+        <parameter>Berlin</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\emailReceiver</parameter>
+        <parameter>info@optimussearch.com</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationPosition</parameter>
+        <parameter>Java Developer (AI, AWS, Docker) - Hamburg, fully remote</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationHref</parameter>
+        <parameter>https://www.xing.com/jobs/hamburg-java-developer-ai-aws-docker-hamburg-fully-remote-99624456</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationLanguage</parameter>
+        <parameter>English</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\jobAgent</parameter>
+        <parameter></parameter>
+    </command>
+</xml>

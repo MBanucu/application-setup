@@ -1,0 +1,49 @@
+<xml>
+    <command name="adaptGender">
+        <parameter>Mr</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\prenameReceiver</parameter>
+        <parameter>Lukas</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\surnameReceiver</parameter>
+        <parameter>Zieber</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\companyReceiver</parameter>
+        <parameter>INDIE Solutions GmbH</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressStreetReceiver</parameter>
+        <parameter>Babelsberger Straße 3</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPLZReceiver</parameter>
+        <parameter>39114</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPlaceReceiver</parameter>
+        <parameter>Magdeburg</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\emailReceiver</parameter>
+        <parameter>info@indie-solutions.de</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationPosition</parameter>
+        <parameter>Senior Java Entwickler (m/w/x)</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationHref</parameter>
+        <parameter>https://www.xing.com/jobs/hamburg-senior-java-entwickler-100408879</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationLanguage</parameter>
+        <parameter>German</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\jobAgent</parameter>
+        <parameter></parameter>
+    </command>
+</xml>

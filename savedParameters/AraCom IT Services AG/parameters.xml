@@ -1,0 +1,49 @@
+<xml>
+    <command name="adaptGender">
+        <parameter>Mrs</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\prenameReceiver</parameter>
+        <parameter>Carolin</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\surnameReceiver</parameter>
+        <parameter>Uhl</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\companyReceiver</parameter>
+        <parameter>AraCom IT Services AG</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressStreetReceiver</parameter>
+        <parameter>Daimlerstraße 13</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPLZReceiver</parameter>
+        <parameter>86368</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\addressPlaceReceiver</parameter>
+        <parameter>Gersthofen</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\emailReceiver</parameter>
+        <parameter>marketing@aracom.de</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationPosition</parameter>
+        <parameter>Java-Entwickler (m/w/d)</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationHref</parameter>
+        <parameter>https://www.xing.com/jobs/gersthofen-java-entwickler-99146367</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\applicationLanguage</parameter>
+        <parameter>German</parameter>
+    </command>
+    <command name="newcommand">
+        <parameter>\jobAgent</parameter>
+        <parameter></parameter>
+    </command>
+</xml>
