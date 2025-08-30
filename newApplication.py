@@ -19,7 +19,7 @@ newDir = f'{app.dirBase} {count:02d}'
 companyReceiver = app.inputParameterFile.searchParameter("companyReceiver")
 newDir = f'{newDir} - {companyReceiver}'
 
-process = subprocess.Popen(["git", "clone", "dev/trunk.git", os.path.join(app.applicationsLocation, newDir)])
+process = subprocess.Popen(["git", "clone", "https://github.com/MBanucu/application.git", os.path.join(app.applicationsLocation, newDir)])
 output, error = process.communicate()
 
 pathToParametersTex = os.path.join(app.applicationsLocation, newDir, "Bewerbung/parameters/texProject/receiver/generated/parameters.tex")
