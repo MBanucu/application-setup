@@ -1,14 +1,10 @@
 import time
-import datetime
 import os
-import pytz
-import re
 import subprocess
 import shutil
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import App
-
 
 app = App.App()
 matchingDirs = app.getAllApplicationDirs("^" + app.dirBase + ".*$")
@@ -18,9 +14,14 @@ newDir = f'{app.dirBase} {count:02d}'
 
 companyReceiver = app.inputParameterFile.searchParameter("companyReceiver")
 newDir = f'{newDir} - {companyReceiver}'
+newDirAbs = os.path.join(app.applicationsLocation, newDir)
 
-process = subprocess.Popen(["git", "clone", "https://github.com/MBanucu/application.git", os.path.join(app.applicationsLocation, newDir)])
+process = subprocess.Popen(["git", "clone", "https://github.com/MBanucu/application.git", newDirAbs])
 output, error = process.communicate()
+
+source_dir = os.path.join('patches', 'Bewerbung')
+target_dir = os.path.join(newDirAbs, 'Bewerbung')
+shutil.copytree(source_dir, target_dir, dirs_exist_ok=True)
 
 pathToParametersTex = os.path.join(app.applicationsLocation, newDir, "Bewerbung/parameters/texProject/receiver/generated/parameters.tex")
 pathToParametersXml = os.path.join(app.applicationsLocation, newDir, "Bewerbung/parameters/parameters.xml")
