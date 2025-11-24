@@ -2,52 +2,54 @@
 <DOCUMENT filename="parameters.xml">
     <!-- "Mr" for male, "Mrs" for female, empty if unknown -->
     <command name="adaptGender">
-        <parameter>Mr</parameter>
+        <parameter>Mrs</parameter>
     </command>
     <!-- Defining the receiver's first name -->
     <command name="newcommand">
         <parameter>\prenameReceiver</parameter>
-        <parameter></parameter>
+        <parameter>Luisa</parameter>
     </command>
     <!-- Defining the receiver's surname -->
     <command name="newcommand">
         <parameter>\surnameReceiver</parameter>
-        <parameter>Klein</parameter>
+        <parameter>Niebel</parameter>
     </command>
     <!-- Defining the receiver's company -->
     <command name="newcommand">
         <parameter>\companyReceiver</parameter>
-        <parameter>Sylke Müller Transport &amp; Logis Müller Sylke</parameter>
+        <parameter>SRH Berufliche Rehabilitation GmbH</parameter>
     </command>
     <!-- Defining the receiver's street address -->
     <command name="newcommand">
         <parameter>\addressStreetReceiver</parameter>
-        <parameter>Johannisstr. 24</parameter>
+        <parameter>Bonhoefferstr. 1</parameter>
     </command>
     <!-- Defining the receiver's postal code -->
     <command name="newcommand">
         <parameter>\addressPLZReceiver</parameter>
-        <parameter>04600</parameter>
+        <parameter>69123</parameter>
     </command>
     <!-- Defining the receiver's city -->
     <command name="newcommand">
         <parameter>\addressPlaceReceiver</parameter>
-        <parameter>Altenburg</parameter>
+        <parameter>Heidelberg</parameter>
     </command>
     <!-- Defining the receiver's email address -->
+    <!-- Collected emails: application contact, responsible person, central company email -->
+    <!-- Comma-separated list of emails, no spaces. -->
     <command name="newcommand">
         <parameter>\emailReceiver</parameter>
-        <parameter>klein.altenburg@gt-online.de</parameter>
+        <parameter>luisa.niebel@srh.de,info@srh.de</parameter>
     </command>
-    <!-- Defining the application position -->
+    <!-- Stelle laut Stellenanzeige -->
     <command name="newcommand">
         <parameter>\applicationPosition</parameter>
-        <parameter>Auslieferungsfahrer/in (nicht Verkaufsfahrer/in)</parameter>
+        <parameter>IT-Schulungskoordinator/in und Software Trainer/in (w/m/d) # in  VZ #</parameter>
     </command>
     <!-- Defining the application hyperlink -->
     <command name="newcommand">
         <parameter>\applicationHref</parameter>
-        <parameter>https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1203430195-S</parameter>
+        <parameter>https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1203878042-S</parameter>
     </command>
     <!-- Defining the application language -->
     <command name="newcommand">
@@ -57,8 +59,9 @@
     <!-- Defining the job agent (if any) -->
     <command name="newcommand">
         <parameter>\jobAgent</parameter>
-        <parameter></parameter>
+        <parameter>Frau Luisa Niebel</parameter>
     </command>
+    <!-- address place of the sender who is the applicant -->
     <command name="newcommand">
         <parameter>\useAddress</parameter>
         <parameter>Birkenfeld</parameter>
