@@ -59,4 +59,8 @@
         <parameter>\jobAgent</parameter>
         <parameter></parameter>
     </command>
+    <command name="newcommand">
+        <parameter>\useAddress</parameter>
+        <parameter>Birkenfeld</parameter>
+    </command>
 </DOCUMENT>
