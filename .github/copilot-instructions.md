@@ -19,7 +19,7 @@ This codebase automates job application document generation using Python, XML pa
 
 Use this workflow when you receive a new job listing (URL or pasted contact block). The goal is to populate `parameters.xml` reliably so `./newApplication.sh` can generate the application.
 
-1) Start: gather the job listing URL or copy the contact block. Example start block:
+1) Start: gather the job listing URL and copy the contact block from current chat. Example start block from chat:
 
 ```
 https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001807019-S
@@ -43,7 +43,7 @@ E-Mail: bewerbung@funke-service.com
 - `\emailReceiver` — comma-separated list of emails (see step 4 for what to include)
 - `\applicationHref` — the job listing URL
 - `\applicationPosition` — the job title from the job page (see step 3)
-- `\jobAgent` — the responsible person for applications (if present)
+- `\jobAgent` — the person that is communicating between applicant and company for applications (if present)
 - `adaptGender` — `Mr`, `Mrs`, or empty depending on the salutation
 
 3) Get the job title: the official position text is on the job listing page. For Arbeitsagentur listings the element id is `detail-kopfbereich-titel`. Use a small curl+sed or your browser to extract it, for example:
