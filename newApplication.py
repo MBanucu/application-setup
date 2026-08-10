@@ -21,7 +21,8 @@ output, error = process.communicate()
 
 source_dir = os.path.join('patches', 'Bewerbung')
 target_dir = os.path.join(newDirAbs, 'Bewerbung')
-shutil.copytree(source_dir, target_dir, dirs_exist_ok=True)
+if os.path.exists(source_dir):
+    shutil.copytree(source_dir, target_dir, dirs_exist_ok=True)
 
 pathToParametersTex = os.path.join(app.applicationsLocation, newDir, "Bewerbung/parameters/texProject/receiver/generated/parameters.tex")
 pathToParametersXml = os.path.join(app.applicationsLocation, newDir, "Bewerbung/parameters/parameters.xml")
