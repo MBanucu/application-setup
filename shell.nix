@@ -14,7 +14,6 @@ pkgs.mkShell {
     ))
     pkgs.texliveFull
     pkgs.pdftk
-    pkgs.xfce.xfce4-terminal
     pkgs.wget
     pkgs.unzip
   ];
