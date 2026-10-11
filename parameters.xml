@@ -64,6 +64,6 @@
     <!-- address place of the sender who is the applicant -->
     <command name="newcommand">
         <parameter>\useAddress</parameter>
-        <parameter>Essen</parameter>
+        <parameter>Karlsruhe</parameter>
     </command>
 </DOCUMENT>
