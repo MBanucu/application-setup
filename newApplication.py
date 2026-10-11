@@ -5,6 +5,7 @@ import shutil
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import App
+from receiverAddress import buildReceiverAddress
 
 app = App.App()
 matchingDirs = app.getAllApplicationDirs("^" + app.dirBase + ".*$")
@@ -45,6 +46,16 @@ def generateParametersTex(pathToParametersTex: str):
                 parameterText = ""
             parameters.append(f'{{{parameterText}}}')
         fileText += f'\\{commandName}{"".join(parameters)}\n'
+    search = app.inputParameterFile.searchParameter
+    receiverAddress = buildReceiverAddress(
+        company=search("companyReceiver"),
+        prename=search("prenameReceiver"),
+        surname=search("surnameReceiver"),
+        street=search("addressStreetReceiver"),
+        plz=search("addressPLZReceiver"),
+        place=search("addressPlaceReceiver"),
+    )
+    fileText += f'\\newcommand{{\\addressReceiver}}{{{receiverAddress}}}\n'
     path = Path(pathToParametersTex)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(pathToParametersTex, "w") as file:
