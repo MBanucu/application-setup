@@ -5,6 +5,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: publish-application
@@ -39,3 +41,31 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: ./publishLatest.sh
+
+      - name: Assemble Pages site
+        run: |
+          appDir=$(ls -1dt applications/*/ | head -1)
+          mkdir -p site
+          cp "$appDir"Bewerbung/build/German/*.pdf site/Bewerbung.pdf
+          cp "$appDir"Bewerbung/build/English/*.pdf site/Application.pdf
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

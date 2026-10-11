@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bewerbung Michael Banucu</title>
+<style>
+  :root { color-scheme: light dark; }
+  html, body { margin: 0; height: 100%; font-family: system-ui, sans-serif; }
+  header {
+    display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    padding: .6rem 1rem; background: #111; color: #fff;
+  }
+  header h1 { flex: 1 1 auto; margin: 0; font-size: 1rem; font-weight: 600; }
+  button, a.btn {
+    font: inherit; padding: .4rem .8rem; border-radius: .4rem;
+    border: 1px solid #555; background: #222; color: #fff;
+    cursor: pointer; text-decoration: none;
+  }
+  button.active { background: #0a84ff; border-color: #0a84ff; }
+  iframe { display: block; width: 100%; height: calc(100vh - 3.2rem); border: 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Bewerbung Michael Banucu</h1>
+  <button id="de" class="active" type="button">Deutsch</button>
+  <button id="en" type="button">English</button>
+  <a class="btn" id="dl" href="Bewerbung.pdf" download>Download</a>
+</header>
+<iframe id="view" src="Bewerbung.pdf" title="PDF"></iframe>
+<script>
+  var files = { de: "Bewerbung.pdf", en: "Application.pdf" };
+  var view = document.getElementById("view");
+  var dl = document.getElementById("dl");
+  var btns = { de: document.getElementById("de"), en: document.getElementById("en") };
+
+  function show(lang) {
+    view.src = files[lang];
+    dl.href = files[lang];
+    for (var k in btns) btns[k].classList.toggle("active", k === lang);
+  }
+
+  btns.de.addEventListener("click", function () { show("de"); });
+  btns.en.addEventListener("click", function () { show("en"); });
+</script>
+</body>
+</html>
