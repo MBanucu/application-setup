@@ -6,8 +6,9 @@
 <title>Bewerbung Michael Banucu</title>
 <style>
   :root { color-scheme: light dark; }
-  html, body { margin: 0; height: 100%; font-family: system-ui, sans-serif; }
+  html, body { margin: 0; font-family: system-ui, sans-serif; }
   header {
+    position: sticky; top: 0; z-index: 10;
     display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
     padding: .6rem 1rem; background: #111; color: #fff;
   }
@@ -18,7 +19,12 @@
     cursor: pointer; text-decoration: none;
   }
   button.active { background: #0a84ff; border-color: #0a84ff; }
-  iframe { display: block; width: 100%; height: calc(100vh - 3.2rem); border: 0; }
+  #viewer { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; }
+  #viewer canvas {
+    max-width: 100%; height: auto; background: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .45);
+  }
+  #status { padding: 1.5rem 1rem; text-align: center; color: #888; }
 </style>
 </head>
 <body>
@@ -28,21 +34,103 @@
   <button id="en" type="button">English</button>
   <a class="btn" id="dl" href="Bewerbung.pdf" download>Download</a>
 </header>
-<iframe id="view" src="Bewerbung.pdf" title="PDF"></iframe>
-<script>
-  var files = { de: "Bewerbung.pdf", en: "Application.pdf" };
-  var view = document.getElementById("view");
-  var dl = document.getElementById("dl");
-  var btns = { de: document.getElementById("de"), en: document.getElementById("en") };
+<div id="viewer"></div>
+<div id="status">Loading …</div>
 
-  function show(lang) {
-    view.src = files[lang];
-    dl.href = files[lang];
-    for (var k in btns) btns[k].classList.toggle("active", k === lang);
+<script type="module">
+  import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.min.mjs";
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.worker.min.mjs";
+
+  const files = { de: "Bewerbung.pdf", en: "Application.pdf" };
+  const viewer = document.getElementById("viewer");
+  const status = document.getElementById("status");
+  const dl = document.getElementById("dl");
+  const btns = { de: document.getElementById("de"), en: document.getElementById("en") };
+
+  let pdfDoc = null;
+  let tasks = [];
+  let observer = null;
+
+  function setStatus(text) {
+    status.textContent = text || "";
+    status.style.display = text ? "block" : "none";
   }
 
-  btns.de.addEventListener("click", function () { show("de"); });
-  btns.en.addEventListener("click", function () { show("en"); });
+  function cancelAll() {
+    tasks.forEach((t) => { try { t.cancel(); } catch (e) {} });
+    tasks = [];
+    if (observer) { observer.disconnect(); observer = null; }
+    if (pdfDoc) { try { pdfDoc.destroy(); } catch (e) {} pdfDoc = null; }
+    viewer.textContent = "";
+  }
+
+  async function renderPage(pageNum, canvas) {
+    const page = await pdfDoc.getPage(pageNum);
+    const containerWidth = viewer.clientWidth - 32;
+    const unscaled = page.getViewport({ scale: 1 });
+    const scale = Math.max(containerWidth / unscaled.width, 0.1);
+    const dpr = window.devicePixelRatio || 1;
+    const viewport = page.getViewport({ scale: scale * dpr });
+
+    canvas.width = Math.floor(viewport.width);
+    canvas.height = Math.floor(viewport.height);
+    canvas.style.width = Math.floor(viewport.width / dpr) + "px";
+
+    const ctx = canvas.getContext("2d");
+    const task = page.render({ canvasContext: ctx, viewport });
+    tasks.push(task);
+    try { await task.promise; } catch (e) { /* cancelled */ }
+  }
+
+  async function load(lang) {
+    cancelAll();
+    setStatus("Loading …");
+    try {
+      pdfDoc = await pdfjsLib.getDocument(files[lang]).promise;
+    } catch (e) {
+      setStatus("Could not load the PDF: " + e.message);
+      return;
+    }
+    setStatus("");
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && !entry.target.dataset.rendered) {
+          entry.target.dataset.rendered = "1";
+          io.unobserve(entry.target);
+          renderPage(Number(entry.target.dataset.page), entry.target)
+            .catch((e) => setStatus("Render error: " + e.message));
+        }
+      }
+    }, { rootMargin: "400px 0px" });
+    observer = io;
+
+    for (let i = 1; i <= pdfDoc.numPages; i++) {
+      const canvas = document.createElement("canvas");
+      canvas.dataset.page = i;
+      canvas.style.aspectRatio = "1 / 1.414";
+      canvas.style.width = Math.max(viewer.clientWidth - 32, 100) + "px";
+      viewer.appendChild(canvas);
+      io.observe(canvas);
+    }
+  }
+
+  function show(lang) {
+    dl.href = files[lang];
+    for (const k in btns) btns[k].classList.toggle("active", k === lang);
+    load(lang);
+  }
+
+  btns.de.addEventListener("click", () => show("de"));
+  btns.en.addEventListener("click", () => show("en"));
+
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => show(btns.de.classList.contains("active") ? "de" : "en"), 300);
+  });
+
+  load("de");
 </script>
 </body>
 </html>
