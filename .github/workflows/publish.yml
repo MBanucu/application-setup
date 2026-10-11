@@ -1,0 +1,32 @@
+name: Build and publish application
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-application
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Enable Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build application (headless)
+        run: nix-shell --run "SKIP_MAIL=1 python newApplication.py"
+
+      - name: Publish PDFs to rolling release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./publishLatest.sh

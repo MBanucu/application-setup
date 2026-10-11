@@ -161,7 +161,8 @@ def generateMailFile(emailBody: str) -> str:
 pathToMailFile = generateMailFile(emailBody)
 emailMessage = f'\'{pathToMailFile}\''
 emailFrom = "from='michael.banucu@googlemail.com'"
-process = subprocess.Popen(["thunderbird", "-compose", f'{emailFrom},to={emailTo},subject={emailSubject},message={emailMessage},{emailAttachment}'])
-# output, error = process.communicate()
+if not os.environ.get("SKIP_MAIL"):
+    process = subprocess.Popen(["thunderbird", "-compose", f'{emailFrom},to={emailTo},subject={emailSubject},message={emailMessage},{emailAttachment}'])
+    # output, error = process.communicate()
 
 app.saveJobListing(newDir)
